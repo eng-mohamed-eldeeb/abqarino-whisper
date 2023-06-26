@@ -10,6 +10,6 @@ app.config.from_object(env_config)
 
 @app.route("/")
 def index():
-    model = whisper.load_model("small")
+    model = whisper.load_model("base")
     result = model.transcribe("audio.mp3")
     return ( result["text"].encode('utf-8').decode(sys.stdout.encoding))
