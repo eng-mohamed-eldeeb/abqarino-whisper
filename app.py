@@ -12,4 +12,4 @@ app.config.from_object(env_config)
 def index():
     model = whisper.load_model("tiny")
     result = model.transcribe("audio.mp3")
-    return ( result["text"].encode('utf-8').decode(sys.stdout.encoding))
+    return {"text": result["text"].encode('utf-8').decode(sys.stdout.encoding)}
